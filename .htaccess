@@ -1,0 +1,15 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^/(web)
+RewriteRule ^assets/(.*)$ /yii2/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ /yii2/web/css/$1 [L]
+RewriteRule ^fonts/(.*)$ /yii2/web/fonts/$1 [L]
+RewriteRule ^js/(.*)$ /yii2/web/js/$1 [L]
+RewriteRule ^images/(.*)$ /yii2/web/images/$1 [L]
+RewriteRule (.*) /yii2/web/$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /yii2/web/index.php
